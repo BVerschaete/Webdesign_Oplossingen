@@ -11,7 +11,7 @@ Aandachtspunten :
 
  - Waar mogelijk, moeten in het html bestand elementen vervangen worden door semantische tegenhangers.
 
- - Schrijf selectors zo algemeen mogelijk, dus geen id attributen& selectors als dit niet echt nodig is. Als je class attributen nodig hebt, geef deze dan een sematische naam.
+ - Schrijf selectors zo algemeen mogelijk, dus geen id attributen& selectors als dit niet echt nodig is. Als je class attributen nodig hebt, geef deze dan een semantische naam.
 
 Beschrijving van de webpagina
 -----------------------------
