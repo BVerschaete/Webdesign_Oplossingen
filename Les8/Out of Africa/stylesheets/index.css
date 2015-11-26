@@ -1,5 +1,5 @@
 body{
-     width: 970px;
+    width: 970px;
     margin: 0 auto;
     background: linear-gradient(black, burlywood) fixed;
 }
@@ -28,7 +28,6 @@ body > div > div:nth-of-type(2) > img{
 
 header > div {
     padding-bottom: 182px;
-    position: relative;
 }
 
 #left-image{
@@ -36,9 +35,12 @@ header > div {
 }
 #right-image{
     position: absolute;
-    top: 10px;
-    left: 420px;
-    z-index: 1;
+    right: 45%;
+}
+
+a{
+    color: darkkhaki;
+    text-decoration: none;
 }
 
 nav {
