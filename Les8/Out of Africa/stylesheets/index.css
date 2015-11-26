@@ -1,0 +1,93 @@
+body{
+     width: 970px;
+    margin: 0 auto;
+    background: linear-gradient(black, burlywood) fixed;
+}
+
+body > div {
+    background: beige;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+body > div > div:first-of-type{
+    float: left;
+    width: 60%;
+}
+
+body > div > div:nth-of-type(2){
+    float: left;
+    width: 30%;
+    padding-left: 20px;
+}
+
+body > div > div:nth-of-type(2) > img{
+    margin-bottom: 15px;
+}
+
+header > div {
+    padding-bottom: 182px;
+    position: relative;
+}
+
+#left-image{
+    position: absolute;
+}
+#right-image{
+    position: absolute;
+    top: 10px;
+    left: 420px;
+    z-index: 1;
+}
+
+nav {
+    background-color: beige;
+    margin: 0;
+    text-align: center;
+    float: top;
+}
+
+nav > ul{
+    margin: 0;
+    padding: 0;
+}
+nav > ul > li {
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 3.5%;
+    padding-left: 3.5%
+}
+
+nav > ul > li > a {
+    color: black;
+    display: block;
+    line-height: 2em;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+}
+
+.border{
+    border: 1px solid black;
+}
+
+.floatleftimage{
+    float: left;
+    margin: 0 10px 10px 10px;
+}
+
+.important{
+    font-weight: bold;
+    font-style: italic;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 15px;
+}
+
+footer{
+    border-top: 5px solid black;
+    padding: 10px 30px 40px 0;
+    text-align: right;
+    font-size: 80%;
+    background-color: beige;
+}
