@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Frisdrank automaat </title>
+</head>
+
+<body>
+<form id="automaat" action="">
+  <p>FRISDRANKAUTOMAAT</p>
+  <table border="1">
+    <tbody><tr> 
+      <td rowspan="2" valign="top"><p>Gebruiksaanwijzing</p>
+        <p> 
+          1.Kies de frisdrank<br>
+          2.Vorm het bedrag<br>
+          3.Druk op de ok knop<br>
+        </p>
+      </td>
+      <td valign="top"><p>Kies de frisdrank:<br>
+          <select id="drpDranken" name="dranken">	   
+            <option value="cola" selected="selected">cola</option>
+            <option value="fanta">fanta</option>
+            <option value="pintje">pintje</option>
+            <option value="chocolademelk">chocolademelk</option>
+            <option value="spuitwater">spuitwater</option>
+          </select>
+        </p>
+      </td>
+      <td><p>Vorm het bedrag: 
+          <input id="btnCent20" value="0.2" type="button">
+          <input id="btnCent5" value="0.05" type="button">
+        </p>
+        <p>&nbsp; </p>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2"><input type="button" id="btnOk" value="ok"></td>
+    </tr>
+  </tbody></table>
+  <p>
+    Bedrag : 
+    <input type="text" id="txtBedrag" value="0">
+    Terug : 
+    <input type="text" id="txtTerug" value="0">
+  </p>
+  <p> 
+    Frisdrank : 
+    <input type="text" id="txtFrisdrank">
+  </p>
+  </form>
+
+    <script src="script/frisdrankautomaat.js" type="text/javascript">
+    </script>
+</body></html>
