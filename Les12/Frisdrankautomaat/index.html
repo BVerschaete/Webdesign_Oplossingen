@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drankautomaat</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css" media="screen">
+</head>
+<body>
+<h1>FRISDRANKAUTOMAAT</h1>
+<table border="1">
+    <tr>
+        <td rowspan="2">Gebruiksaanwijzing<br/>1.Kies de frisdrank<br/>2.Vorm het bedrag<br/>3.Druk op de OK knop</td>
+        <td>Kies de frisdrank:
+            <select id="keuze">
+                    <option value="Cola">Cola</option>
+                    <option value="Fanta">Fanta</option>
+                    <option value="Ice-Tea">Ice-Tea</option>
+            </select>
+        </td>
+        <td>Vorm het bedrag: <button class="prijs" value="0.2">0.2</button><button class="prijs" value="0.05">0.05</button></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button id="bevestig">OK</button></td>
+    </tr>
+</table>
+<br/>
+Bedrag: <input id="bedrag" type="number"> Terug: <input id="terug" type="number"><br/>
+Drankje: <input id="drank" type="text">
+
+<script type="text/javascript" charset="utf-8" src="scripts/index.js"></script>
+</body>
+</html>
