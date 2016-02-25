@@ -1,3 +1,16 @@
-.message { padding : 30px; }
-.important { font-weight :bold; }
-.invalid { color : red; }
+.mainText{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.important{
+    color: red;
+}
+
+.underlined{
+    text-decoration: underline;
+}
+
+.fat{
+    font-weight: bold;
+}

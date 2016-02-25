@@ -3,16 +3,9 @@
  */
 
 function setup() {
-    var txtOutput=document.getElementById("txtOutput");
-    console.log( hasClass(txtOutput, "message") );
-    console.log( hasClass(txtOutput, "massage") );
-    addClass(txtOutput, "important");
-    console.log( hasClass(txtOutput, "important") );
-    addClass(txtOutput, "invalid");
-    removeClass(txtOutput, "important");
-    console.log( hasClass(txtOutput, "important") );
-    toggleClass(txtOutput, "invalid");
-    toggleClass(txtOutput, "invalid");
+    document.getElementById("colortoggle").addEventListener("click", changeColor);
+    document.getElementById("underlinetoggle").addEventListener("click", changeUnderline);
+    document.getElementById("boldtoggle").addEventListener("click", changeBold);
 }
 
 function hasClass(element, className){
@@ -37,11 +30,23 @@ function removeClass(element, className){
 }
 
 function toggleClass(element, className){
-    if(hasClass){
+    if(hasClass(element, className)){
         removeClass(element, className);
     } else {
         addClass(element, className);
     }
+}
+
+function changeColor(){
+    toggleClass(document.getElementsByTagName("p")[0], "important");
+}
+
+function changeUnderline(){
+    toggleClass(document.getElementsByTagName("p")[0], "underlined");
+}
+
+function changeBold(){
+    toggleClass(document.getElementsByTagName("p")[0], "fat");
 }
 
 window.addEventListener("load", setup);
