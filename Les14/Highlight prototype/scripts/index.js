@@ -27,16 +27,22 @@ function zoek(){
             begin = instructies.indexOf(zoekText);
         }
 
-        //plaatst html tags rond gevonden tekst
         while (begin != -1) {
+            //plaatst html tags rond gevonden tekst
             instructies = instructies.slice(0, begin) + "<span class='highlight'>" + instructies.slice(begin, begin + zoekText.length) + "</span>" + instructies.slice(begin + zoekText.length, instructies.length);
-            begin = instructies.indexOf(zoekText, begin + zoekText.length + 31);
-        }
 
-        document.getElementsByTagName("p")[0].innerHTML = instructies;
+            //kijkt of we hoofdlettergevoelig moeten zoeken of niet
+            if(document.getElementById("hoofdletters").checked){
+                begin = instructies.toLowerCase().indexOf(zoekText.toLowerCase(), begin + zoekText.length + 31)
+            } else {
+                begin = instructies.indexOf(zoekText, begin + zoekText.length + 31);
+            }
+        }
     } else {
         errorText.innerHTML = "Geen zoektext opgegeven."
     }
+
+    document.getElementsByTagName("p")[0].innerHTML = instructies;
 }
 
 window.addEventListener("load", setup);
