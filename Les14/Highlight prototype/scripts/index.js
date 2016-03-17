@@ -17,7 +17,7 @@ function zoek(){
     instructies = div.textContent || div.innerText || "";
 
     //kijkt wanneer input geldig is
-    if(zoekText.replace(/\s/g, '').length || zoekText == null) {
+    if(zoekText.replace(/\s/g, '').length || zoekText != null) {
         errorText.innerHTML = "";
 
         var begin;
