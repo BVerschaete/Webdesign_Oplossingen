@@ -25,7 +25,6 @@ function fillPictures(){
         images.push(imageSrc);
         images.push(imageSrc);
     }
-    console.log(images);
 }
 
 function fillScreen(){
@@ -36,9 +35,8 @@ function fillScreen(){
             var backgroundDiv = document.createElement('div');
             backgroundDiv.className = 'backgroundDiv';
             var img = document.createElement('img');
-            img.setAttribute('data-image', images[4*i+j]);
-            //1 = true
-            img.setAttribute('src', "img/achterkant.png");
+            img.setAttribute('data-image', images[AANTAL_HORIZONTAAL*i+j]);
+            img.src = "img/achterkant.png";
             img.addEventListener('click', switchImg);
             img.addEventListener('click', checkMatching);
             backgroundDiv.appendChild(img);
@@ -48,33 +46,71 @@ function fillScreen(){
 }
 
 function switchImg(event){
-    var src = event.target.dataset.image;
-    event.target.dataset.image = "img/achterkant.png";
-    event.target.src = src;
-    event.target.setAttribute('data-turned', "1");
+    switchImgElement(event.target);
 }
 
-function switchImages(image1, image2){
-    switchImg(image1);
-    switchImg(image2);
+function switchImgElement(element){
+    var placeHolder;
+    if(element.src.indexOf("achterkant") == -1){
+        placeHolder = element.getAttribute('data-image');
+        element.setAttribute('data-image', element.src);
+        element.src = placeHolder;
+    } else {
+        placeHolder = element.getAttribute('data-image');
+        element.setAttribute('data-image', element.src);
+        element.src = placeHolder;
+    }
 }
+
+function switchImagesBack(image1, image2){
+    image1.parentNode.style.backgroundColor = "black";
+    image2.parentNode.style.backgroundColor = "black";
+    switchImgElement(image1);
+    switchImgElement(image2);
+    var nodeList = document.getElementById('container').children;
+
+    for (var i = 0; i < nodeList.length; i++) {
+        nodeList[i].firstChild.addEventListener('click', switchImg);
+        nodeList[i].firstChild.addEventListener('click', checkMatching);
+    }
+}
+
+var numberClicked = 0;
+var found = [];
 
 function checkMatching(){
-    var nodeList = document.getElementById('container').children;
-    var turned = [];
-    for(var i = 0; i < nodeList.length; i++){
-        if(nodeList[i].firstChild.getAttribute("data-turned") == 1) {
-            turned.push(nodeList[i].firstChild);
-        }
-    }
+    numberClicked++;
+    if(numberClicked == 2) {
+        var nodeList = document.getElementById('container').children;
+        var turned = [];
 
-    if(turned[0].src == turned[1].src){
-        turned[0].parentNode.style.backgroundColor = "green";
-        turned[1].parentNode.style.backgroundColor = "green";
-    } else {
-        turned[0].parentNode.style.backgroundColor = "red";
-        turned[1].parentNode.style.backgroundColor = "red";
-        setTimeout(switchImages(turned[0], turned[1]), 200);
+        for (var i = 0; i < nodeList.length; i++) {
+            nodeList[i].firstChild.removeEventListener('click', switchImg);
+            nodeList[i].firstChild.removeEventListener('click', checkMatching);
+            if (nodeList[i].firstChild.src.indexOf("achterkant") == -1) {
+                if(found.indexOf(nodeList[i].firstChild) == -1){
+                    turned.push(nodeList[i].firstChild);
+                }
+            }
+        }
+
+        if (turned[0].src == turned[1].src) {
+            found.push(turned[0], turned[1]);
+            turned[0].parentNode.style.backgroundColor = "green";
+            turned[0].removeEventListener('click', switchImg);
+            turned[0].removeEventListener('click', checkMatching);
+            turned[1].parentNode.style.backgroundColor = "green";
+            turned[1].removeEventListener('click', switchImg);
+            turned[1].removeEventListener('click', checkMatching);
+        } else {
+            turned[0].parentNode.style.backgroundColor = "red";
+            turned[1].parentNode.style.backgroundColor = "red";
+            setTimeout(function(){
+                switchImagesBack(turned[0], turned[1])
+            }, 2000);
+        }
+
+        numberClicked = 0;
     }
 }
 
