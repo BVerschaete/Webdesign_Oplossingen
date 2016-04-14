@@ -1,0 +1,8 @@
+select{
+    width: 500px;
+}
+
+label{
+    width: 150px;
+    display: inline-block;
+}
